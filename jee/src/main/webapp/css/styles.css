@@ -1,0 +1,110 @@
+/* Hoja de Estilos Principal */
+
+h1{
+	text-align: center;
+	color: teal;
+	font-size: 2em;
+}
+p{
+	color:red;
+}
+
+a{
+	text-decoration: none;
+	color:#fff;
+}
+
+a:hover{
+	color:orange;
+	font-weight: 600;
+}
+/* nav
+**********************************/
+nav{
+background-color: teal;
+color:rgb(255,255,255);
+border-top:5px solid #03A9F4;
+border-bottom:5px solid #03A9F4;
+padding: 20px 0;
+padding: 20px,10px, 5px;
+text-align: center;
+}
+
+nav ul{
+	list-style:none;
+}
+
+nav li{
+display: inline-block;	
+margin-right: 20px;
+padding:0px 10px;
+text-align: center;
+}
+
+/*selectores
+**************************/
+input[type="text"]:valid{
+	color:green;
+}
+
+input[type="text"]:invalid{
+	color:red;
+	border:1px solid red;
+}
+
+#ojoGris{
+	color:grey;
+}
+
+
+.text-danger{
+	color:red;
+}
+
+/*.text-danger:before{
+	content: "***"
+}	
+*/
+/*
+.text-danger:after{
+	content: "!!!"
+}	
+*/
+
+#ojo{
+	color:gray;
+}
+
+#ojo:hover{
+	color:black;
+}
+
+.casilla{
+	width: 10px;
+	height: 10px;
+}
+.ahorcado{
+	border:1px solid red;
+	width: 75px;
+	height: 100px;
+	overflow: hidden;
+	background-image: url('../img/ahorcado.jpg');
+	
+}
+
+.fallo0{
+	background-position:616px;
+	
+}
+
+
+.fallo1{
+	background-position: 539px;
+	
+}
+
+.normal{
+	font-weight:normal;
+	
+}
+
