@@ -1,0 +1,265 @@
+/*
+Estilos para maquetar una web con flexbox
+@http://www.falconmasters.com/web-design/sitio-web-layout-flexbox/
+@author Andrea Perez
+@date 2018 09 05
+@version 1.0
+CSS preparado para laptop a 1024px y responsive para los siguientes
+breakpoints:
+Tablet: 760px width
+Mobile: 375px width
+*/
+ /*Reset
+******************************************************/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ /*
+Colores fijos
+******************************************************/
+:root{
+    --main-bg-color: #2c3e50;
+    --red: #c0392b;
+    --orange-light: #e67e22;
+    --orange-dark: #d35400;
+    --color-tablet: #8b4ac4;
+    --color-mobile: #31f7ea;
+}
+ /*Tags
+******************************************************/
+body{
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    color:  #fff;
+    text-decoration: none;
+}
+ /*Layouts
+******************************************************/
+.contenedor{
+    background: #fff;
+    width: 90%;
+    max-width: 10024px;
+    margin: auto;
+     /*Flexbox*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*flex-flow: row wrap;*/
+ }
+header{
+    background-color: var(--main-bg-color);
+    width: 100%;
+    padding: 20px;
+     /*Flex*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+aside{
+    background-color: var(--orange-light);
+    padding: 20px;
+    width: 30%;
+    /*Flex*/
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+footer{
+    background-color: var(--main-bg-color);
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+nav a:hover{
+    background: #e74c3c;
+}
+
+ /*Partes del  header
+****************************************************/
+header .logo{
+    color:  #fff;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+header .logo img{
+    width: 50px;
+}
+header .logo h1 a{
+    color:  #fff;
+    text-decoration: none;
+    line-height: 50px;
+}
+header .nav-main{
+    width: 50%; 
+     /*Flex*/
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+header .content-menu-mobile, .nav-main-mobile, .btn-close{
+    display: none;
+    overflow: hidden;
+}
+header .nav-main a{
+    background: var(--red);
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+    display: inline-block;
+     /*Flex*/
+    flex-grow: 1;
+}
+ 
+ /*Partes de section
+*****************************************************/
+section.main{
+    width: 70%;
+    padding: 20px;
+    
+}
+
+section.main article{
+    border-bottom: 1px solid #000;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+section.main article:nth-last-child(1){
+    border-bottom: none;
+}
+
+ /*Partes del Aside
+*****************************************************/
+aside .widget{
+    background-color: var(--orange-dark);
+    height: 150px;
+    margin: 10px;
+}
+aside .widget .imagen img{
+    width: 100%;
+    max-height: 150px;
+    max-width: 310px;
+    display: block;
+    margin: auto;
+}
+
+ /*Partes del Footer
+*****************************************************/
+footer .nav-links{
+    background-color: var(--red);
+    display: flex;
+    flex-wrap: wrap;
+}
+footer .nav-links a{
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px;
+}
+footer .nav-socials a{
+    text-align: center;
+    display: inline-block;
+    color: #0cf226;
+}
+/*Breakpoints
+    Tablet: 768px width   
+*************************************************/
+@media screen and (max-width: 768px){
+    header{
+        background-color: var(--color-tablet);
+        flex-direction: column;
+    }
+     header .logo{
+        padding: 10px;
+    }
+     header .nav-main{
+        width: 100%;
+    }
+     section.main{
+        width: 100%;
+        text-align: justify;
+    }
+     aside{
+        width: 100%;
+        flex-direction: row;
+    }
+     aside .widget{
+        width: 150px;
+    }
+}
+
+/*Breakpoints
+    Mobile: 375px width
+**********************************************************/
+ @media screen and (max-width: 375px){
+    header{
+       background-color: var(--color-mobile);
+    }
+     header .nav-main{
+        background-color: var(--red);
+        padding: 10px 15px;
+        display: none;
+    }
+     header .content-menu-mobile, .nav-main-mobile, .btn-close{
+        display: block;
+    }
+     header .content-menu-mobile{
+        width: 100%;
+    }
+     header .nav-main-mobile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+     header .nav-main-mobile a{
+        text-align: center;
+        padding: 50px;
+        flex-grow: 1;
+    }
+
+    /*Menu footer
+    *************************************************/
+    footer{
+        background-color: var(--main-bg-color);
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+   footer .nav-links a{
+        text-align: center;
+        width: 100%;
+        padding: 1px;
+   }
+    
+    
+
+    /*Menu oculto
+    **********************************************+***/
+     .overlay{
+        background-color: rgba(0,0,0, 0.7);
+        z-index: 1; /*Sobreponer al resto de etiquetas*/
+        width: 0%; /*Se cambia al 100% mediante js*/
+        height: 100vh; /*Ocupar todo el ancho y alto*/
+        position: fixed;
+        top: 0; 
+        left: 0;
+        transition: .5s;
+    }
+     .btn-open{
+        color: #000;
+        float: right;
+    }
+}
